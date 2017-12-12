@@ -34,10 +34,19 @@ public class Query implements GraphQLQueryResolver {
 		return userRepository.findOne(id);
 	}
 
-	public List<Link> getAllLinks(LinkFilter filter) {
-		if (filter == null) {
+	public List<Link> getAllLinks(LinkFilter filter, Number skip, Number first) {
+		if (filter == null && skip == null && first == null) {
 			return linkRepository.findAll();
 		}
-		return linkRepository.findByUrlLikeOrDescriptionLike(filter.getUrlContains(), filter.getDescriptionContains());
+
+		int skipInt = skip == null ? 0 : skip.intValue();
+		int firstInt = first == null ? 1 : first.intValue();
+
+		if (filter == null) {
+			return linkRepository.findPaginated(skipInt, firstInt);
+		}
+
+		return linkRepository.findByUrlLikeOrDescriptionLikePaginated(filter.getUrlContains(),
+				filter.getDescriptionContains(), skipInt, firstInt);
 	}
 }

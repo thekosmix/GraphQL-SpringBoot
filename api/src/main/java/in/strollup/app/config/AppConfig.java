@@ -27,7 +27,7 @@ import graphql.schema.GraphQLScalarType;
 public class AppConfig {
 
 	@Bean
-	static Gson gson() {
+	public Gson gson() {
 		return new Gson();
 	}
 
