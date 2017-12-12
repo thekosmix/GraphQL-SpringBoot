@@ -19,7 +19,7 @@ input AuthData {
 
 type Query {
   allLinks: [Link]
-  allLinks(filter: LinkFilter): [Link]
+  filteredLinks(filter: LinkFilter): [Link]
   linkById(id: ID!) : Link
   allUsers: [User]
   userById(id: ID!) : User

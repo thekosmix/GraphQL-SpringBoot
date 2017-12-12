@@ -7,13 +7,14 @@ import org.springframework.stereotype.Service;
 
 import com.coxautodev.graphql.tools.GraphQLQueryResolver;
 
+import in.strollup.dto.LinkFilter;
 import in.strollup.entity.mongo.Link;
 import in.strollup.entity.mongo.User;
 import in.strollup.repo.mongo.LinkRepository;
 import in.strollup.repo.mongo.UserRepository;
 
 @Service
-public class LinkQuery implements GraphQLQueryResolver {
+public class Query implements GraphQLQueryResolver {
 
 	@Autowired
 	private LinkRepository linkRepository;
@@ -35,5 +36,9 @@ public class LinkQuery implements GraphQLQueryResolver {
 
 	public User getUserById(String id) {
 		return userRepository.findOne(id);
+	}
+
+	public List<Link> filteredLinks(LinkFilter filter) {
+		return linkRepository.findByUrlLikeOrDescriptionLike(filter.getUrlContains(), filter.getDescriptionContains());
 	}
 }
