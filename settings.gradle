@@ -1,0 +1,5 @@
+rootProject.name = 'graphql-spring-boot'
+include 'service'
+include 'repository'
+include 'common'
+include 'api'

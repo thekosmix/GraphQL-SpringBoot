@@ -1,0 +1,63 @@
+group 'in.strollup.graphql.api'
+apply plugin: 'war'
+apply plugin: 'org.springframework.boot'
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+bootRun {
+    jvmArgs "-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=5105"
+    addResources = true
+    systemProperties = System.properties
+}
+
+allprojects {
+    configurations.all {
+        resolutionStrategy.eachDependency {
+            DependencyResolveDetails details ->
+            if (details.requested.name == 'logback-classic' || details.requested.name == 'logback-core') {
+                details.useVersion '1.1.8'
+            }}
+    }
+}
+
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:1.4.2.RELEASE")
+        classpath 'org.springframework:springloaded:1.2.5.RELEASE'
+    }
+}
+
+buildscript {
+    repositories { jcenter() }
+    dependencies {
+        classpath "org.springframework.boot:spring-boot-gradle-plugin:1.5.9.RELEASE"
+        classpath 'org.springframework:springloaded:1.2.6.RELEASE'
+    }
+}
+
+apply plugin: 'idea'
+
+idea {
+    module {
+        inheritOutputDirs = false
+        outputDir = file("$buildDir/classes/main/")
+    }
+}
+
+
+dependencies {
+
+    compile project(':service')
+    
+    compile("com.graphql-java:graphiql-spring-boot-starter:3.6.0")
+
+    compile("org.springframework.boot:spring-boot-starter-web")
+
+    providedRuntime("org.springframework.boot:spring-boot-starter-tomcat")
+    
+    compile("com.graphql-java:graphql-spring-boot-starter:3.6.0")
+}

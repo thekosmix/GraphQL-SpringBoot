@@ -1,0 +1,10 @@
+group 'in.strollup.graphql.service'
+apply plugin: 'maven'
+
+dependencies {
+
+    compile project(':repository')
+    
+    compile("com.graphql-java:graphql-java-tools:4.0.0")
+
+}

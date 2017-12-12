@@ -1,0 +1,14 @@
+group 'in.strollup.graphql.repository'
+apply plugin: 'maven'
+
+dependencies {
+
+    compile project(':common')
+    
+	compile group: 'javax.persistence', name: 'persistence-api', version: '1.0'
+
+    compile('org.springframework.data:spring-data-jpa:1.9.1.RELEASE') {
+        exclude module: 'slf4j-api'
+    }
+    compile 'org.springframework.data:spring-data-mongodb:1.9.6.RELEASE'
+}
