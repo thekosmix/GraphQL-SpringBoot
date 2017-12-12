@@ -22,10 +22,6 @@ public class Query implements GraphQLQueryResolver {
 	@Autowired
 	private UserRepository userRepository;
 
-	public List<Link> getAllLinks() {
-		return linkRepository.findAll();
-	}
-
 	public Link getLinkById(String id) {
 		return linkRepository.findOne(id);
 	}
@@ -38,7 +34,10 @@ public class Query implements GraphQLQueryResolver {
 		return userRepository.findOne(id);
 	}
 
-	public List<Link> filteredLinks(LinkFilter filter) {
+	public List<Link> getAllLinks(LinkFilter filter) {
+		if (filter == null) {
+			return linkRepository.findAll();
+		}
 		return linkRepository.findByUrlLikeOrDescriptionLike(filter.getUrlContains(), filter.getDescriptionContains());
 	}
 }
