@@ -1,18 +1,21 @@
 package in.strollup.app.context;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import java.util.List;
+import java.util.stream.Collectors;
+
+import org.springframework.stereotype.Component;
 
 import graphql.ExceptionWhileDataFetching;
+import graphql.GraphQLError;
+import graphql.servlet.DefaultGraphQLErrorHandler;
+import in.strollup.service.pojo.SanitizedError;
 
-public class ErrorHandler extends ExceptionWhileDataFetching {
-
-	public ErrorHandler(ExceptionWhileDataFetching inner) {
-		super(inner.getException());
-	}
-
+@Component
+public class ErrorHandler extends DefaultGraphQLErrorHandler {
 	@Override
-	@JsonIgnore
-	public Throwable getException() {
-		return super.getException();
+	protected List<GraphQLError> filterGraphQLErrors(List<GraphQLError> errors) {
+		return errors.stream().filter(e -> e instanceof ExceptionWhileDataFetching || super.isClientError(e)).map(
+				e -> e instanceof ExceptionWhileDataFetching ? new SanitizedError((ExceptionWhileDataFetching) e) : e)
+				.collect(Collectors.toList());
 	}
 }

@@ -10,7 +10,6 @@ import org.springframework.data.mongodb.MongoDbFactory;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.repository.config.EnableMongoRepositories;
 
-import com.google.gson.Gson;
 import com.mongodb.WriteConcern;
 
 import graphql.language.StringValue;
@@ -25,11 +24,6 @@ import graphql.schema.GraphQLScalarType;
 		"in.strollup.app.context" })
 @EnableMongoRepositories(basePackages = "in.strollup.repo.mongo", mongoTemplateRef = "mongoTemplate")
 public class AppConfig {
-
-	@Bean
-	public Gson gson() {
-		return new Gson();
-	}
 
 	@Bean({ "mongoTemplate" })
 	public MongoTemplate mongoTemplate(MongoDbFactory mongoDbFactory) throws Exception {

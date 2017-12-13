@@ -7,11 +7,11 @@ import org.springframework.stereotype.Service;
 
 import com.coxautodev.graphql.tools.GraphQLQueryResolver;
 
-import in.strollup.dto.LinkFilter;
 import in.strollup.entity.mongo.Link;
 import in.strollup.entity.mongo.User;
 import in.strollup.repo.mongo.LinkRepository;
 import in.strollup.repo.mongo.UserRepository;
+import in.strollup.service.pojo.LinkFilter;
 
 @Service
 public class Query implements GraphQLQueryResolver {

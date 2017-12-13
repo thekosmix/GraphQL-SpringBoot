@@ -3,8 +3,8 @@ apply plugin: 'maven'
 
 dependencies {
 
-    compile project(':common')
-    
+	compile 'org.projectlombok:lombok:1.16.6'
+
 	compile group: 'javax.persistence', name: 'persistence-api', version: '1.0'
 
     compile('org.springframework.data:spring-data-jpa:1.9.1.RELEASE') {

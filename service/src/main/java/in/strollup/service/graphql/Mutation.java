@@ -10,7 +10,6 @@ import org.springframework.stereotype.Service;
 import com.coxautodev.graphql.tools.GraphQLMutationResolver;
 
 import graphql.GraphQLException;
-import in.strollup.dto.AuthData;
 import in.strollup.entity.mongo.Link;
 import in.strollup.entity.mongo.User;
 import in.strollup.entity.mongo.Vote;
@@ -18,6 +17,7 @@ import in.strollup.repo.mongo.LinkRepository;
 import in.strollup.repo.mongo.UserRepository;
 import in.strollup.repo.mongo.VoteRepository;
 import in.strollup.service.graphql.relation.SigninPayload;
+import in.strollup.service.pojo.AuthData;
 
 @Service
 public class Mutation implements GraphQLMutationResolver {

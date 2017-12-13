@@ -1,4 +1,4 @@
-package in.strollup.dto;
+package in.strollup.service.pojo;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
