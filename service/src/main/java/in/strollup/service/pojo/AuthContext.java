@@ -1,4 +1,4 @@
-package in.strollup.app.context;
+package in.strollup.service.pojo;
 
 import java.util.Optional;
 

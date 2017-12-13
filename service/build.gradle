@@ -6,5 +6,7 @@ dependencies {
     compile project(':repository')
     
     compile("com.graphql-java:graphql-java-tools:4.0.0")
+    
+	compile group: 'com.graphql-java', name: 'graphql-java-servlet', version: '4.2.0'
 
 }

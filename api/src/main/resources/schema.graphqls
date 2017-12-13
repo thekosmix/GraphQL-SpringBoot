@@ -46,7 +46,7 @@ type Vote {
 type Mutation {
   signinUser(auth: AuthData): SigninPayload
   createUser(name: String!, authProvider: AuthData!): User
-  createLink(url: String!, description: String!, userId: String!): Link
+  createLink(url: String!, description: String!): Link
   createLinkId(id: String!, url: String!, description: String!, userId: String!): Link
   createVote(linkId: ID, userId: ID): Vote
 }
