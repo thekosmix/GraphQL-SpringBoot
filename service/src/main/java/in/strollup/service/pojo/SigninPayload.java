@@ -1,4 +1,4 @@
-package in.strollup.service.graphql.relation;
+package in.strollup.service.pojo;
 
 import in.strollup.entity.mongo.User;
 import lombok.AllArgsConstructor;

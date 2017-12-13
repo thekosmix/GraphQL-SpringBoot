@@ -12,6 +12,7 @@ import in.strollup.service.pojo.SanitizedError;
 
 @Component
 public class ErrorHandler extends DefaultGraphQLErrorHandler {
+
 	@Override
 	protected List<GraphQLError> filterGraphQLErrors(List<GraphQLError> errors) {
 		return errors.stream().filter(e -> e instanceof ExceptionWhileDataFetching || super.isClientError(e)).map(

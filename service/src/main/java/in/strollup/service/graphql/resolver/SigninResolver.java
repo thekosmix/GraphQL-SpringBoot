@@ -5,7 +5,7 @@ import org.springframework.stereotype.Service;
 import com.coxautodev.graphql.tools.GraphQLResolver;
 
 import in.strollup.entity.mongo.User;
-import in.strollup.service.graphql.relation.SigninPayload;
+import in.strollup.service.pojo.SigninPayload;
 
 @Service
 public class SigninResolver implements GraphQLResolver<SigninPayload> {

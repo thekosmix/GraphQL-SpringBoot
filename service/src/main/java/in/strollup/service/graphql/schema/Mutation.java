@@ -1,4 +1,4 @@
-package in.strollup.service.graphql;
+package in.strollup.service.graphql.schema;
 
 import java.time.Instant;
 import java.time.ZoneOffset;
@@ -17,9 +17,9 @@ import in.strollup.entity.mongo.Vote;
 import in.strollup.repo.mongo.LinkRepository;
 import in.strollup.repo.mongo.UserRepository;
 import in.strollup.repo.mongo.VoteRepository;
-import in.strollup.service.graphql.relation.SigninPayload;
 import in.strollup.service.pojo.AuthContext;
 import in.strollup.service.pojo.AuthData;
+import in.strollup.service.pojo.SigninPayload;
 
 @Service
 public class Mutation implements GraphQLMutationResolver {
@@ -33,15 +33,11 @@ public class Mutation implements GraphQLMutationResolver {
 	@Autowired
 	private VoteRepository voteRepository;
 
-	// public Link createLink(String url, String description, String userId) {
-	// Link newLink = new Link(url, description, userId);
-	// newLink = linkRepository.save(newLink);
-	// return newLink;
-	// }
-
-	// The way to inject the context is via DataFetchingEnvironment
 	public Link createLink(String url, String description, DataFetchingEnvironment env) {
 		AuthContext context = env.getContext();
+		if (context.getUser() == null || context.getUser().getId() == null) {
+			throw new GraphQLException("Only a loggedin user can create a link");
+		}
 		Link newLink = new Link(url, description, context.getUser().getId());
 		newLink = linkRepository.save(newLink);
 		return newLink;

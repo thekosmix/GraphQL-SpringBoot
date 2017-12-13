@@ -1,4 +1,4 @@
-package in.strollup.service.graphql;
+package in.strollup.service.graphql.schema;
 
 import java.util.List;
 
