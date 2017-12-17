@@ -20,8 +20,8 @@ import graphql.schema.GraphQLScalarType;
  * Created by jaiprakash on 28/12/16.
  */
 @Configuration
-@ComponentScan(value = { "in.strollup.entity", "in.strollup.repo", "in.strollup.service", "in.strollup.api",
-		"in.strollup.app.context" })
+@ComponentScan(value = { "in.strollup.entity", "in.strollup.repo", "in.strollup.service", "in.strollup",
+		"in.strollup.app" })
 @EnableMongoRepositories(basePackages = "in.strollup.repo.mongo", mongoTemplateRef = "mongoTemplate")
 public class AppConfig {
 
