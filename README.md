@@ -3,3 +3,12 @@ This is an implementation of Fb's GraphQL in java using spring-boot and gradle. 
 
 ## How to setup
  - read [HOWTO.md] (HOWTO.md)
+
+##Screenshots
+GraphiQL
+
+  ![GraphQL](ScreenShots/GraphiQL.png)
+  
+Debugging with GraphiQL
+
+  ![Debugging with GraphiQL](ScreenShots/GraphiQL2.png)

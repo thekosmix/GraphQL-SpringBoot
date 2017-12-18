@@ -6,7 +6,7 @@ sourceCompatibility = 1.8
 targetCompatibility = 1.8
 
 bootRun {
-    jvmArgs "-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=5105"
+    jvmArgs "-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=9009"
     addResources = true
     systemProperties = System.properties
 }
