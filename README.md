@@ -7,8 +7,8 @@ This is an implementation of Fb's GraphQL in java using spring-boot and gradle. 
 ##Screenshots
 GraphiQL
 
-  ![GraphQL](ScreenShots/GraphiQL.png)
+  ![GraphQL](ScreenShots/GiQL.png)
   
 Debugging with GraphiQL
 
-  ![Debugging with GraphiQL](ScreenShots/GraphiQL2.png)
+  ![Debugging with GraphiQL](ScreenShots/GiQL2.png)
