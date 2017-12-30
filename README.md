@@ -4,11 +4,11 @@ This is an implementation of Fb's GraphQL in java using spring-boot and gradle. 
 ## How to setup
  - read [HOWTO.md](HOWTO.md)
 
-##Screenshots
-GraphiQL
+## Screenshots
+### GraphiQL
 
   ![GraphQL](ScreenShots/GiQL.png)
   
-Debugging with GraphiQL
+### Debugging with GraphiQL
 
   ![Debugging with GraphiQL](ScreenShots/GiQL2.png)
