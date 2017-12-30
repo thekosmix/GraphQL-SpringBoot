@@ -2,7 +2,7 @@
 This is an implementation of Fb's GraphQL in java using spring-boot and gradle. It shows how to create a GraphQL server for a micro-blogging web-app where a user can be created, then login and post links which can be voted by other users.
 
 ## How to setup
- - read [HOWTO.md] (HOWTO.md)
+ - read [HOWTO.md](HOWTO.md)
 
 ##Screenshots
 GraphiQL
